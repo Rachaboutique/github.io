@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- تحديد لغة الصفحة العربية والتوجيه من اليمين إلى اليسار -->
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racha Boutique 💤</title>
+    <meta charset="UTF-8"> <!-- لدعم الحروف العربية بشكل صحيح دون تشويه -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- لجعل التصميم متناسقاً مع شاشات الهواتف والكمبيوتر -->
+    <title>Racha Boutique 💤</title> <!-- اسم الموقع الذي يظهر في علامة تبويب المتصفح -->
     
     <style>
         body { 
@@ -116,7 +117,7 @@
             margin-top: 170px; 
         }
 
-        /* إبراز اسم المتجر ليظهر دائماً فوق الشريط الضبابي الوردي */
+        /* إبراز اسم المتجر ليظهر دائماً فوق الشريط الضبابي الوردي برقم حماية مخصص */
         .store-title { 
             font-size: 42px; 
             font-weight: 900; 
@@ -148,7 +149,7 @@
         .btn-add-cart { background-color: transparent; color: #d63384; border: 2px solid #d63384; padding: 10px 20px; font-size: 15px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; box-sizing: border-box; display: inline-block; text-decoration: none; }
         .btn-add-cart:hover { background-color: #d63384; color: white; }
 
-        /* الحاوية الطولية للحفاظ على الشكل الدائري القديم للأزرار وتحت بعضها */
+        /* الحاوية الطولية للحفاظ على الشكل الدائري للأزرار وتحت بعضها */
         .social-sidebar-old {
             position: fixed;
             top: 50%;
@@ -177,7 +178,7 @@
             transform: scale(1.05); 
         }
 
-        /* الألوان الرسمية لكل زر تواصل */
+        /* الألوان الرسمية المخصصة للمنصات الأربعة */
         .bg-fb { background-color: #1877f2; }
         .bg-ig { background-color: #e1306c; }
         .bg-tg { background-color: #0088cc; }
@@ -254,7 +255,7 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* كود التجاوب التلقائي المخصص لشاشات الهواتف المحمولة */
+        /* كود التجاوب التلقائي المخصص لشاشات الهواتف المحمولة وتوزيع الأزرار */
         @media (max-width: 768px) {
             .top-navbar {
                 height: 80px !important;
@@ -287,10 +288,3 @@
                 font-size: 12px;
                 padding: 6px 14px;
             }
-            /* ضبط مظهر أزرار التواصل لتصبح أيقونات دائرية صغيرة جداً في أسفل الهاتف */
-            .social-sidebar-old {
-                top: auto !important;
-                bottom: 10px !important; 
-                right: 0 !important;
-                left: 0 !important;
-                transform: none !important;
