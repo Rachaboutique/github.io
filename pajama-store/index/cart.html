@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشترياتي - Racha Boutique</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #fff6f8; 
+            color: #333; 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px; 
+        }
+
+        .cart-container { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            width: 95%; 
+            max-width: 600px; 
+            margin: 40px auto; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border: 1px solid #ffe3ec; 
+            text-align: right; 
+        }
+
+        h2 { 
+            color: #d63384; 
+            text-align: center; 
+            margin-top: 0; 
+            border-bottom: 2px solid #ffe3ec; 
+            padding-bottom: 15px; 
+        }
+
+        /* تنسيق جدول المنتجات المضافة */
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .cart-table th {
+            background-color: #ffd6e2;
+            color: #b02263;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .cart-table td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #ffe3ec;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* زر الإزالة الأحمر الأنيق */
+        .btn-remove {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn-remove:hover {
+            background-color: #bd2130;
+        }
+
+        /* صندوق إجمالي الأسعار أسفل الصفحة */
+        .total-box {
+            background-color: #fff1f5;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #b02263;
+            text-align: center;
+            margin-top: 25px;
+            font-size: 20px;
+            border: 1px dashed #d63384;
+        }
+
+        /* تنسيق أزرار التحكم بالأسفل */
+        .btn-checkout { 
+            background-color: #d63384; 
+            color: white; 
+            border: none; 
+            padding: 14px; 
+            font-size: 18px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            margin-top: 20px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .btn-checkout:hover { background-color: #b02263; }
+
+        .back-btn-chic {
+            background-color: transparent;
+            color: #d63384;
+            border: 2px solid #d63384;
+            padding: 12px 20px;       
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            display: block;     
+            text-align: center;
+            margin-top: 15px;          
+            transition: 0.3s ease-in-out;
+        }
+        .back-btn-chic:hover {
+            background-color: #d63384;
+            color: white;
+        }
+
+        .empty-msg {
+            text-align: center;
+            color: #6c757d;
+            padding: 30px;
+            font-size: 18px;
+        }
+   /* كود تجاوب صفحة المشتريات مع الهاتف */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .cart-container { padding: 20px 15px; width: 100%; box-sizing: border-box; margin: 20px auto; }
+    /* تصغير حجم خطوط الجدول لكي يظهر بالكامل داخل شاشة الهاتف بدون خروج */
+    .cart-table th, .cart-table td { padding: 8px 5px; font-size: 14px; }
+    .btn-remove { padding: 4px 8px; font-size: 11px; }
+    .total-box { font-size: 17px; padding: 12px; }
+    .guide-bubble { width: calc(100% - 30px) !important; left: 15px !important; bottom: 15px !important; }
+}
+
+   </style>
+</head>
+<body>
+
+    <div class="cart-container">
+        <h2>سلة مشترياتي 🛍️</h2>
+        
+        <!-- جدول عرض المنتجات الديناميكي -->
+        <table class="cart-table" id="cartTable">
+            <thead>
+                <tr>
+                    <th>اسم المنتج</th>
+                    <th>السعر</th>
+                    <th>التحكم</th>
+                </tr>
+            </thead>
+            <tbody id="cartItemsList">
+                <!-- المنتجات المشتراة ستظهر هنا أوتوماتيكياً عبر الجافاسكريبت -->
+            </tbody>
+        </table>
+
+        <!-- رسالة تظهر في حال كانت السلة فارغة -->
+        <div id="emptyMessage" class="empty-msg" style="display: none;"> سلتكِ فارغة حالياً.. اذهبي لتصفح المنتجات الرائعة!واختاري ما يناسبك 💤</div>
+
+        <!-- مجموع الأسعار المبرمج في الأسفل -->
+        <div class="total-box">
+            <span>مجموع أسعار المنتجات الإجمالي: </span>
+            <span id="cartTotalValue">0</span> دج
+        </div>
+
+        <!-- زر الانتقال الفوري لصفحة الطلب لتأكيد المشتريات -->
+        <a href="#" id="checkoutButton" class="btn-checkout" onclick="proceedToOrder(event)">طلب المنتجات عبر الواتساب 🚀</a>
+        
+        <!-- زر العودة الأنيق للمتجر -->
+        <a href="index.html" class="back-btn-chic">العودة لمواصلة التسوق 🛍️</a>
+    </div>
+
+    <script>
+        // دالة جلب وعرض البيانات من ذاكرة المتصفح المحلية (LocalStorage)
+        function loadCartPage() {
+            let cart = JSON.parse(localStorage.getItem('rachaCart')) || [];
+            let listContainer = document.getElementById('cartItemsList');
+            let table = document.getElementById('cartTable');
+            let emptyMsg = document.getElementById('emptyMessage');
+            let totalValueEl = document.getElementById('cartTotalValue');
+            
+            listContainer.innerHTML = '';
+            let totalSum = 0;
+
+            if (cart.length === 0) {
+                table.style.display = 'none';
+                emptyMsg.style.display = 'block';
+                totalValueEl.innerText = '0';
+                return;
+            }
+
+            table.style.display = 'table';
+            emptyMsg.style.display = 'none';
+
+            // بناء صفوف الجدول لكل منتج مضاف بشكل تراكمي
+            cart.forEach((item, index) => {
+                totalSum += item.price;
+                
+                let row = `<tr>
+                    <td><b>${item.name}</b></td>
+                    <td style="color:#d63384; font-weight:bold;">${item.price} دج</td>
+                    <td><button class="btn-remove" onclick="removeFromCart(${index})">إزالة من السلة ❌</button></td>
+                </tr>`;
+                listContainer.innerHTML += row;
+            });
+
+            // تحديث السعر الإجمالي في الأسفل أوتوماتيكياً
+            totalValueEl.innerText = totalSum;
+        }
+
+        // دالة إزالة منتج محدد من السلة وتحديث السعر الإجمالي أوتوماتيكياً
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('rachaCart')) || [];
+            cart.splice(index, 1); // مسح العنصر المحدد
+            localStorage.setItem('rachaCart', JSON.stringify(cart));
+            loadCartPage(); // إعادة تحميل الجدول والأسعار فوراً
+        }
+
+        // دالة إرسال الطلبية كاملة إلى صفحة الطلب order.html
+        function proceedToOrder(event) {
+            event.preventDefault();
+            let cart = JSON.parse(localStorage.getItem('rachaCart')) || [];
+            if (cart.length === 0) {
+                alert("سلتكِ فارغة! يرجى إضافة منتجات أولاً.");
+                return;
+            }
+            
+            // تجميع أسماء المنتجات لإرسالها دفعة واحدة
+            let productNames = cart.map(item => item.name).join(' + ');
+            let totalSum = document.getElementById('cartTotalValue').innerText;
+            
+            // الانتقال لصفحة order.html وتمرير المشتريات بالكامل في الرابط
+            window.location.href = `order.html?product=${encodeURIComponent(productNames + ' (المجموع: ' + totalSum + ' دج)')}`;
+        }
+
+        // تشغيل الصفحة عند فتحها
+        window.onload = loadCartPage;
+    </script>
+
+</body>
+</html>
