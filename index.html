@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- تحديد لغة الصفحة العربية والتوجيه من اليمين إلى اليسار -->
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racha Boutique 💤</title>
+    <meta charset="UTF-8"> <!-- لدعم الحروف العربية بشكل صحيح دون تشويه -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- لجعل التصميم متناسقاً مع شاشات الهواتف والكمبيوتر -->
+    <title>Racha Boutique 💤</title> <!-- اسم الموقع الذي يظهر في علامة تبويب المتصفح -->
     
     <style>
         body { 
@@ -116,20 +117,7 @@
             margin-top: 170px; 
         }
 
-        /* إبراز اسم المتجر ليظهر دائماً فوق الشريط الضبابي الوردي */
-        .store-title { 
-            font-size: 42px; 
-            font-weight: 900; 
-            color: #d63384; 
-            margin-top: 10px; 
-            margin-bottom: 5px; 
-            text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2); 
-            display: inline-block; 
-            animation: pulseGlow 3s infinite ease-in-out; 
-            position: relative !important;
-            z-index: 10001 !important; 
-        }
-        
+        .store-title { font-size: 42px; font-weight: 900; color: #d63384; margin-top: 10px; margin-bottom: 5px; text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2); display: inline-block; animation: pulseGlow 3s infinite ease-in-out; }
         @keyframes pulseGlow { 0% { transform: scale(1); } 50% { transform: scale(1.05); color: #b02263; } 100% { transform: scale(1); } }
         .subtitle { color: #6c757d; font-size: 16px; margin-bottom: 40px; }
         
@@ -160,7 +148,7 @@
             z-index: 1000;
         }
 
-        /* التنسيق الأساسي المطابق تماماً لزر الفيسبوك القديم */
+        /* التنسيق الأساسي المطابق تماماً لزر الفيسبوك القديم الخاص بكِ */
         .old-float-btn {
             display: inline-block;
             text-decoration: none;
@@ -177,7 +165,7 @@
             transform: scale(1.05); 
         }
 
-        /* الألوان الرسمية لكل زر تواصل */
+        /* الألوان الرسمية لكل زر */
         .bg-fb { background-color: #1877f2; }
         .bg-ig { background-color: #e1306c; }
         .bg-tg { background-color: #0088cc; }
@@ -205,55 +193,6 @@
             box-shadow: 0 2px 8px rgba(214, 51, 132, 0.05);
         }
 
-        /* فقاعة الإرشاد اللطيفة */
-        .guide-bubble {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #ffffff;
-            border: 2px solid #d63384;
-            border-radius: 16px;
-            padding: 15px;
-            width: 260px;
-            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.15);
-            z-index: 10000; 
-            text-align: right;
-            animation: bounceIn 1s ease-out;
-        }
-
-        .guide-bubble p {
-            margin: 0 0 12px 0;
-            font-size: 14px;
-            color: #333;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        .guide-btn {
-            background-color: #d63384;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            font-size: 13px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s ease;
-            width: 100%; 
-            text-align: center;
-        }
-
-        .guide-btn:hover {
-            background-color: #b02263;
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            70% { transform: scale(0.9); opacity: 0.9; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
         /* كود التجاوب التلقائي المخصص لشاشات الهواتف المحمولة */
         @media (max-width: 768px) {
             .top-navbar {
@@ -275,7 +214,6 @@
                 font-size: 30px !important;
             }
             .container {
-                display: grid !important;
                 grid-template-columns: repeat(1, minmax(0, 300px)) !important;
                 gap: 20px !important;
             }
@@ -294,3 +232,44 @@
                 right: 0 !important;
                 left: 0 !important;
                 transform: none !important;
+                flex-direction: row !important; 
+                justify-content: center !important;
+                gap: 15px !important; 
+                padding: 0 10px !important;
+            }
+            .old-float-btn {
+                width: 45px !important; 
+                height: 45px !important; 
+                padding: 0 !important; 
+                font-size: 20px !important; 
+                border-radius: 50% !important; 
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex: none !important; 
+            }
+            .old-float-btn span {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- العدادات البرمجية لتصفير العداد قبل تشغيله تراكمياً -->
+    <script>
+        window.cartCount = 0;
+        window.cartTotal = 0;
+    </script>
+
+    <!-- الشريط الوردي العلوي الثابت مع السلة والنص المطلوب -->
+    <div class="top-navbar">
+        <img src="logo.jpg.jpg" alt="لوغو المتجر" class="store-logo">
+        
+        <div class="cart-wrapper">
+            <div class="cart-status-box">
+                <span class="cart-icon">🛒</span>
+                <span>السلة: </span>
+                <span class="cart-count" id="globalCartCount">0</span>
+                <span style="margin-right: 8px;">| المجموع: </span>
+                <span id="globalCartTotal">0</span><span> دج</span>
