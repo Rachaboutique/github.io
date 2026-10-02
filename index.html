@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- تحديد لغة الصفحة العربية والتوجيه من اليمين إلى اليسار -->
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8"> <!-- لدعم الحروف العربية بشكل صحيح دون تشويه -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- لجعل التصميم متناسقاً مع شاشات الهواتف والكمبيوتر -->
-    <title>Racha Boutique 💤</title> <!-- اسم الموقع الذي يظهر في علامة تبويب المتصفح -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racha Boutique 💤</title>
     
     <style>
         body { 
@@ -117,7 +116,7 @@
             margin-top: 170px; 
         }
 
-        /* تم إصلاح طبقة اسم المتجر ليطفو فوق الشريط الضبابي والوردي بامتياز */
+        /* إبراز اسم المتجر ليظهر دائماً فوق الشريط الضبابي الوردي */
         .store-title { 
             font-size: 42px; 
             font-weight: 900; 
@@ -161,7 +160,7 @@
             z-index: 1000;
         }
 
-        /* التنسيق الأساسي المطابق تماماً لزر الفيسبوك القديم الخاص بكِ */
+        /* التنسيق الأساسي المطابق تماماً لزر الفيسبوك القديم */
         .old-float-btn {
             display: inline-block;
             text-decoration: none;
@@ -178,7 +177,7 @@
             transform: scale(1.05); 
         }
 
-        /* الألوان الرسمية لكل زر */
+        /* الألوان الرسمية لكل زر تواصل */
         .bg-fb { background-color: #1877f2; }
         .bg-ig { background-color: #e1306c; }
         .bg-tg { background-color: #0088cc; }
@@ -255,7 +254,7 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* كود التجاوب التلقائي المخصص لشاشات الهواتف المحمولة النحيفة والأنيقة */
+        /* كود التجاوب التلقائي المخصص لشاشات الهواتف المحمولة */
         @media (max-width: 768px) {
             .top-navbar {
                 height: 80px !important;
@@ -288,3 +287,10 @@
                 font-size: 12px;
                 padding: 6px 14px;
             }
+            /* ضبط مظهر أزرار التواصل لتصبح أيقونات دائرية صغيرة جداً في أسفل الهاتف */
+            .social-sidebar-old {
+                top: auto !important;
+                bottom: 10px !important; 
+                right: 0 !important;
+                left: 0 !important;
+                transform: none !important;
