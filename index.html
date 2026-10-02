@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Racha Boutique 💤</title>
+    
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -13,6 +14,8 @@
             margin: 0; 
             padding: 20px; 
         }
+
+        /* الشريط الوردي الثابت المطور والزجاجي */
         .top-navbar {
             position: fixed;
             top: 0;
@@ -29,6 +32,8 @@
             padding: 0 30px; 
             box-shadow: 0 4px 20px rgba(214, 51, 132, 0.08); 
         }
+
+        /* اللوغو الدائري المثبت في جهة اليسار */
         .store-logo { 
             width: 105px !important;    
             height: 105px !important;   
@@ -39,6 +44,8 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
             order: 2; 
         }
+
+        /* حاوية السلة والنص الإرشادي باليمين */
         .cart-wrapper {
             display: flex;
             flex-direction: column;
@@ -46,6 +53,8 @@
             gap: 4px;
             order: 1; 
         }
+
+        /* بوكس أيقونة السلة الذكية */
         .cart-status-box {
             display: flex;
             align-items: center;
@@ -55,7 +64,15 @@
             border: 2px solid #d63384;
             font-weight: bold;
             color: #d63384;
+            box-shadow: 0 2px 8px rgba(214, 51, 132, 0.1);
         }
+
+        .cart-icon {
+            font-size: 20px;
+            margin-left: 8px;
+        }
+
+        /* عداد السلة الوردي الدائري */
         .cart-count {
             background-color: #d63384;
             color: white;
@@ -65,13 +82,21 @@
             margin-right: 5px;
             font-weight: bold;
         }
+
+        /* تنسيق نص عرض مشترياتي تحت السلة المربوط بالصفحة الجديدة */
         .view-my-purchases {
             font-size: 12px;
             color: #b02263;
             font-weight: bold;
             text-decoration: underline;
             cursor: pointer;
+            transition: 0.2s;
         }
+        .view-my-purchases:hover {
+            color: #d63384;
+        }
+
+        /* شريط الكتابة المتحركة المستمرة تحت الشريط الوردي */
         .moving-text-bar {
             position: fixed;
             top: 105px; 
@@ -83,76 +108,189 @@
             font-size: 14px;
             padding: 6px 0;
             z-index: 9998; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
+
+        /* مسافة أمان علوية لتعويض مساحة الأشرطة الثابتة ومنع التداخل */
         .main-content {
             margin-top: 170px; 
         }
+
+        /* إبراز اسم المتجر ليظهر دائماً فوق الشريط الضبابي الوردي */
         .store-title { 
             font-size: 42px; 
             font-weight: 900; 
             color: #d63384; 
             margin-top: 10px; 
             margin-bottom: 5px; 
+            text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2); 
+            display: inline-block; 
+            animation: pulseGlow 3s infinite ease-in-out; 
+            position: relative !important;
+            z-index: 10001 !important; 
         }
+        
+        @keyframes pulseGlow { 0% { transform: scale(1); } 50% { transform: scale(1.05); color: #b02263; } 100% { transform: scale(1); } }
         .subtitle { color: #6c757d; font-size: 16px; margin-bottom: 40px; }
+        
         .container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
-        .card { background: white; border: 1px solid #ffe3ec; border-radius: 16px; width: 300px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card { background: white; border: 1px solid #ffe3ec; border-radius: 16px; width: 300px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; box-sizing: border-box; }
+        .card:hover { transform: translateY(-5px); }
         .card img { width: 100%; border-radius: 12px; height: 380px; object-fit: cover; }
         .card h3 { font-size: 19px; margin: 15px 0 5px 0; color: #2d3748; }
         .price { color: #d63384; font-weight: bold; font-size: 22px; margin: 10px 0; }
-        .btn { background-color: #d63384; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; text-decoration: none; display: inline-block; box-sizing: border-box; margin-bottom: 8px; }
-        .btn-add-cart { background-color: transparent; color: #d63384; border: 2px solid #d63384; padding: 10px 20px; font-size: 15px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; box-sizing: border-box; display: inline-block; }
-        .fb-float-btn { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); background-color: #1877f2; color: white; text-decoration: none; padding: 12px 18px; border-radius: 30px; font-weight: bold; z-index: 1000; }
-    </style>
-</head>
-<body>
+        
+        /* زر طلب عبر واتساب الفوري */
+        .btn { background-color: #d63384; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; text-decoration: none; display: inline-block; box-sizing: border-box; margin-bottom: 8px; }
+        .btn:hover { background-color: #b02263; }
+        
+        /* زر إضافة إلى السلة الوردي الأنيق */
+        .btn-add-cart { background-color: transparent; color: #d63384; border: 2px solid #d63384; padding: 10px 20px; font-size: 15px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; box-sizing: border-box; display: inline-block; text-decoration: none; }
+        .btn-add-cart:hover { background-color: #d63384; color: white; }
 
-    <script>
-        window.cartCount = 0;
-        window.cartTotal = 0;
-    </script>
+        /* الحاوية الطولية للحفاظ على الشكل الدائري القديم للأزرار وتحت بعضها */
+        .social-sidebar-old {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px; 
+            z-index: 1000;
+        }
 
-    <div class="top-navbar">
-        <img src="logo.jpg.jpg" alt="لوغو المتجر" class="store-logo">
-        <div class="cart-wrapper">
-            <div class="cart-status-box">
-                <span>🛒 السلة: </span>
-                <span class="cart-count" id="globalCartCount">0</span>
-                <span> | المجموع: </span>
-                <span id="globalCartTotal">0</span><span> دج</span>
-            </div>
-            <div class="view-my-purchases" onclick="window.location.href='cart.html'">عرض مشترياتي 🛍️</div>
-        </div>
-    </div>
+        /* التنسيق الأساسي المطابق تماماً لزر الفيسبوك القديم */
+        .old-float-btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 30px; 
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
 
-    <div class="moving-text-bar">
-        <marquee direction="right" scrollamount="5" loop="infinite">✨ أهلاً بكم في Racha Boutique.. تخفيضات مميزة لفترة محدودة على أرقى البيجامات الحريرية! التوصيل متوفر والدفع عند الاستلام 🚚 ✨</marquee>
-    </div>
+        .old-float-btn:hover {
+            transform: scale(1.05); 
+        }
 
-    <a href="https://facebook.com" target="_blank" class="fb-float-btn">صفحتنا على الفيسبوك 👍</a>
+        /* الألوان الرسمية لكل زر تواصل */
+        .bg-fb { background-color: #1877f2; }
+        .bg-ig { background-color: #e1306c; }
+        .bg-tg { background-color: #0088cc; }
+        .bg-wa { background-color: #25d366; }
 
-    <div class="main-content">
-        <h1 class="store-title">✨ Racha Boutique ✨</h1>
-        <p class="subtitle">تصفحي تشكيلتنا المميزة واطلبي الآن.. التوصيل والدفع يداً بيد عند الاستلام 🚚</p>
+        /* تنسيق المربعات التحفيزية والمميزات */
+        .features-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: -10px auto 35px auto;
+            max-width: 700px;
+            padding: 0 10px;
+        }
 
-        <div class="container">
-            <div class="card">
-                <img src="pajama1.jpg.jpg" alt="بيجامة ستان">
-                <h3>بيجامة ستان حرير راقية</h3>
-                <p class="price">2100 دج</p>
-                <a href="order.html?product=بيجامة ستان حرير راقية (2100 دج)" class="btn">طلب عبر الواتساب 💬</a>
-                <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal;">إضافة إلى السلة 🛒</button>
-            </div>
-            
-            <div class="card">
-                <img src="pajama2.jpg.jpg" alt="بيجامة ستان">
-                <h3>بيجامة شتوية ناعمة</h3>
-                <p class="price">1000 دج</p>
-                <a href="order.html?product=بيجامة شتوية ناعمة (1000 دج)" class="btn">طلب عبر الواتساب 💬</a>
-                <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 1000; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal;">إضافة إلى السلة 🛒</button>
-            </div>
-        </div> 
-    </div> 
+        .feature-box {
+            background-color: #fff1f5; 
+            border: 1px dashed #d63384; 
+            border-radius: 30px; 
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #b02263; 
+            box-shadow: 0 2px 8px rgba(214, 51, 132, 0.05);
+        }
 
-</body>
-</html>
+        /* فقاعة الإرشاد اللطيفة */
+        .guide-bubble {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ffffff;
+            border: 2px solid #d63384;
+            border-radius: 16px;
+            padding: 15px;
+            width: 260px;
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.15);
+            z-index: 10000; 
+            text-align: right;
+            animation: bounceIn 1s ease-out;
+        }
+
+        .guide-bubble p {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .guide-btn {
+            background-color: #d63384;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+            width: 100%; 
+            text-align: center;
+        }
+
+        .guide-btn:hover {
+            background-color: #b02263;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            70% { transform: scale(0.9); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* كود التجاوب التلقائي المخصص لشاشات الهواتف المحمولة */
+        @media (max-width: 768px) {
+            .top-navbar {
+                height: 80px !important;
+                padding: 0 15px !important;
+            }
+            .store-logo {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            .moving-text-bar {
+                top: 80px !important;
+            }
+            .main-content {
+                margin-top: 140px !important;
+                padding: 10px !important;
+            }
+            .store-title {
+                font-size: 30px !important;
+            }
+            .container {
+                display: grid !important;
+                grid-template-columns: repeat(1, minmax(0, 300px)) !important;
+                gap: 20px !important;
+            }
+            .features-container {
+                gap: 10px;
+                margin-bottom: 25px;
+            }
+            .feature-box {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+            /* ضبط مظهر أزرار التواصل لتصبح أيقونات دائرية صغيرة جداً في أسفل الهاتف */
+            .social-sidebar-old {
+                top: auto !important;
+                bottom: 10px !important; 
+                right: 0 !important;
+                left: 0 !important;
+                transform: none !important;
