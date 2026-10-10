@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة غير متوفرة - Racha Boutique</title>
+    <!-- وسم الأيقونة لكي يظهر شعار متجرك فوق النافذة -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg.jpg">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #fff6f8; 
+            color: #333; 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* لتوسيط المحتوى عمودياً في منتصف الشاشة */
+            box-sizing: border-box;
+        }
+
+        /* حاوية بوكس الخطأ الزجاجية الأنيقة */
+        .error-container { 
+            background: white; 
+            padding: 40px 30px; 
+            border-radius: 24px; 
+            width: 90%; 
+            max-width: 420px; 
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.05); 
+            border: 1px solid #ffe3ec; 
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* الدائرة الناعمة المحيطة بعلامة الـ X */
+        .icon-circle {
+            width: 90px;
+            height: 90px;
+            background-color: #fff1f5;
+            border: 2px dashed #ff4d6d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px auto;
+        }
+
+        /* علامة X الحمراء الكبيرة */
+        .x-mark {
+            font-size: 46px;
+            color: #ff4d6d; /* لون أحمر زاهي وواضح للخطأ */
+            font-weight: bold;
+            line-height: 1;
+            user-select: none;
+        }
+
+        h2 { 
+            color: #d63384; 
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-weight: 900;
+            font-size: 24px;
+        }
+
+        .error-text {
+            font-size: 15px;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        /* زر العودة المطور والوردي للمتجر */
+        .back-btn-chic {
+            background-color: #d63384;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(214, 51, 132, 0.2);
+        }
+
+        .back-btn-chic:hover {
+            background-color: #b02263;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(214, 51, 132, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* كود التجاوب التلقائي مع شاشات الهواتف الصغيرة */
+        @media (max-width: 480px) {
+            .error-container { padding: 30px 20px; }
+            h2 { font-size: 20px; }
+            .error-text { font-size: 14px; margin-bottom: 25px; }
+            .icon-circle { width: 80px; height: 80px; }
+            .x-mark { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <!-- الدائرة وعلامة X الحمراء -->
+        <div class="icon-circle">
+            <span class="x-mark">❌</span>
+        </div>
+        
+        <h2>الصفحة غير متوفرة ⚠️</h2>
+        
+        <!-- نص الشرح الموجه للمستخدمين -->
+        <p class="error-text">
+            عذراً، هذه الصفحة غير متوفرة حالياً أو أنها تحت الصيانة المؤقتة لتحديث الخدمات الفنية لتوفير تجربة تسوق أفضل لكِ.
+        </p>
+        
+        <!-- زر العودة الأنيق للمتجر الرئيسي -->
+        <a href="index.html" class="back-btn-chic">العودة لتصفح المتجر 🛍️</a>
+    </div>
+
+</body>
+</html>
