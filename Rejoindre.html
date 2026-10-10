@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انضم إلى فريقنا - Racha Boutique</title>
+    <!-- وسم الأيقونة لكي يظهر شعار متجرك فوق النافذة -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg.jpg">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #fff6f8; 
+            color: #333; 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px; 
+        }
+
+        /* حاوية الاستمارة المطور والزجاجي */
+        .join-container { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            width: 90%; 
+            max-width: 480px; 
+            margin: 40px auto; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border: 1px solid #ffe3ec; 
+            text-align: right; 
+        }
+
+        h2 { 
+            color: #d63384; 
+            text-align: center; 
+            margin-top: 0; 
+            margin-bottom: 5px; /* تقليص المسافة لتلتصق بالمقدمة الجديدة */
+            font-weight: 900;
+        }
+
+        /* تنسيق العنوان الفرعي المضاف حديثاً */
+        .join-subtitle {
+            font-size: 16px;
+            color: #b02263;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        /* تنسيق الشرح البسيط للمقدمة */
+        .join-intro-text {
+            font-size: 13px;
+            color: #6c757d;
+            text-align: center;
+            line-height: 1.5;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        /* بوكس شرح الاستفادة في الأعلى */
+        .info-display { 
+            background-color: #fff1f5; 
+            padding: 15px; 
+            border-radius: 12px; 
+            font-size: 14px;
+            line-height: 1.6;
+            color: #b02263; 
+            text-align: right; 
+            margin-bottom: 25px; 
+            border: 1px dashed #d63384; 
+        }
+
+        .form-group { 
+            margin-bottom: 18px; 
+        }
+
+        label { 
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            color: #4a5568; 
+            font-size: 15px;
+        }
+
+        label span { 
+            color: red; 
+        }
+
+        input[type="text"], input[type="tel"] { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            box-sizing: border-box; 
+        }
+
+        input:focus { 
+            border-color: #d63384; 
+            outline: none; 
+            box-shadow: 0 0 5px rgba(214, 51, 132, 0.2); 
+        }
+
+        /* حاوية صفين بجانب بعضهما للدائرة والبلدية */
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* تنسيق بوكس الشروط والمربع الصغير */
+        .terms-container {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 8px;
+            max-height: 100px;
+            overflow-y: auto; 
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #d63384; 
+            margin-top: 2px;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper span {
+            font-size: 13px;
+            color: #334155;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        /* زر تقديم الطلب المطور */
+        .btn-submit { 
+            background-color: #d63384; 
+            color: white; 
+            border: none; 
+            padding: 14px; 
+            font-size: 18px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-weight: bold; 
+            transition: 0.3s; 
+        }
+
+        .btn-submit:hover { 
+            background-color: #b02263; 
+        }
+        
+        /* زر العودة الأنيق للمتجر */
+        .back-btn-chic {
+            background-color: transparent;
+            color: #d63384;
+            border: 2px solid #d63384;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            display: inline-block;
+            min-width: 180px;
+            margin-top: 15px;
+            transition: 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .back-btn-chic:hover {
+            background-color: #d63384;
+            color: white;
+        }
+
+        /* كود تجاوب الصفحة مع شاشات الهواتف */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .join-container { padding: 20px 15px; margin: 20px auto; }
+            h2 { font-size: 22px; }
+            .join-subtitle { font-size: 14px; }
+            .join-intro-text { font-size: 12px; margin-bottom: 15px; }
+            .info-display { font-size: 13px; padding: 12px; }
+            .form-row { flex-direction: column; gap: 0; }
+            input[type="text"], input[type="tel"] { padding: 10px; font-size: 15px; }
+            .btn-submit { font-size: 16px; padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="join-container">
+        <h2>انضم إلى فريقنا 🤝</h2>
+        
+        <!-- العنوان الفرعي -->
+        <p class="join-subtitle">ابدئي رحلة نجاحكِ التجاري معنا اليوم!</p>
+        
+        <!-- الشرح البسيط كمقدمة -->
+        <p class="join-intro-text">
+            هل تبحثين عن فرصة لزيادة دخلكِ من البيت؟ نرحب بكِ في فريق عمل Racha Boutique الرسمي. يرجى ملء هذه الاستمارة بدقة للالتحاق بجميلاتنا.
+        </p>
+        
+        <!-- قسم مزايا الانضمام المحدث بعباراتكِ التسويقية الممتازة -->
+        <div class="info-display">
+            📢 <b>مزايا الانضمام إلى فريق عمل Racha Boutique:</b><br>
+            • بدون رأس مال (الربح الصافي): لن تدفعي أي دينار للبدء، مجاناً من هاتفكِ فقط، ومهمتكِ هي الإقناع وجلب الزبائن.<br>
+            • عمولات دقيقة: ستحصلين على 5% من بيع كل قطعة، وستزيد النسبة عند بيع أكثر من قطعة.<br>
+            • كود سري خاص بكِ: ستحصلين على كود رقمي مسجل باسمكِ (كود إحالة) تمنحينه لزبوناتكِ، لكي نضمن لكِ حقكِ وعمولتكِ كاملة بدون أي خلط في الحسابات.<br>
+            • تخفيضات حصرية على مشترياتكِ: كعضو في فريقنا، سيكون لكِ الحق في شراء منتجاتنا بأسعار مخفضة (خصيصاً لكي) لتستفيدي وتتألقي أنتِ أيضاً.<br>
+            • دفع مرن وسريع لاستلام أرباحكِ (يمكنكِ استلام أرباحكِ يداً بيد).<br>
+            • فرصة عمل من بيتكِ (فقط بهاتفكِ) دون خبرة سابقة.<br>
+            • سارعي في الانضمام الآن "مع Racha Boutique.. شعارنا دائماً: اكسبي بدل أن تنفقي! 💸✨
+        </div>
+
+        <form onsubmit="handleJoinSubmit(event)">
+            <div class="form-group">
+                <label>الاسم الكامل واللقب <span>*</span></label>
+                <input type="text" id="joinFullName" placeholder="اكتبي اسمكِ ولقبكِ الكامل..." required>
+            </div>
+
+            <div class="form-group">
+                <label>الولاية <span>*</span></label>
+                <input type="text" id="joinWilaya" placeholder="اكتبي ولايتكِ الحالية..." required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>الدائرة <span>*</span></label>
+                    <input type="text" id="joinDaira" placeholder="اسم الدائرة..." required>
+                </div>
+                <div class="form-group">
+                    <label>البلدية <span>*</span></label>
+                    <input type="text" id="joinBaladiya" placeholder="اسم البلدية..." required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>رقم الهاتف <span>*</span></label>
+                <input type="tel" id="joinPhone" placeholder="مثال: 0661XXXXXX" required>
+            </div>
+
+            <label>شروط الانضمام للفريق:</label>
+            <div class="terms-container">
+                1. الالتزام بالجدية والاحترافية في التعامل مع الزبائن والطلبيات الموجهة.<br>
+                2. الحفاظ على سرية معلومات بضائع المتجر والأسعار المحددة للفريق.<br>
+                3. يمنع إلغاء الطلبيات بعد خروجها للشحن دون سبب قاهر ومقبول تجارياً.<br>
+                4. يتم احتساب الأرباح وإرسالها أسبوعياً بمرونة تامة لراحة المشتركة.
+            </div>
+
+            <div class="checkbox-wrapper" onclick="toggleCheckbox(event)">
+                <input type="checkbox" id="agreeTerms" required>
+                <span>لقد قرأت كافة الشروط المذكورة أعلاه وأوافق عليها كاملاً 📝</span>
+            </div>
+
+            <button type="submit" class="btn-submit">تقديم الطلب 🚀</button>
+        </form>
+        
+        <a href="index.html" class="back-btn-chic">العودة للمتجر الرئيسي 🛍️</a>
+    </div>
+
+    <script>
+        function toggleCheckbox(event) {
+            const checkbox = document.getElementById('agreeTerms');
+            if (event.target !== checkbox) {
+                checkbox.checked = !checkbox.checked;
+            }
+        }
+
+        function handleJoinSubmit(event) {
+            event.preventDefault(); 
+            
+            const checkbox = document.getElementById('agreeTerms');
+            if (!checkbox.checked) {
+                alert("يرجى الضغط على مربع الموافقة على الشروط أولاً لإتمام تقديم طلبكِ! ⚠️");
+                return;
+            }
+
+            let name = document.getElementById('joinFullName').value;
+            let wilaya = document.getElementById('joinWilaya').value;
+            let daira = document.getElementById('joinDaira').value;
