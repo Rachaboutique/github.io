@@ -123,13 +123,39 @@
         @keyframes pulseGlow { 0% { transform: scale(1); } 50% { transform: scale(1.05); color: #b02263; } 100% { transform: scale(1); } }
         .subtitle { color: #6c757d; font-size: 16px; margin-bottom: 40px; }
         
-        .container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
-        .card { background: white; border: 1px solid #ffe3ec; border-radius: 16px; width: 300px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; border-radius: 12px; height: 380px; object-fit: cover; }
-        .card h3 { font-size: 19px; margin: 15px 0 5px 0; color: #2d3748; }
-        .price { color: #d63384; font-weight: bold; font-size: 22px; margin: 10px 0; }
+                /* 1. الحاوية الكبيرة: تحديد أقصى عرض للوسط لكي تضيق الصفحة وتبقى الجوانب فارغة تماماً */
+        .container { 
+            display: flex !important; 
+            justify-content: center !important; 
+            flex-wrap: wrap !important; 
+            gap: 20px !important; 
+            max-width: 600px; /* تضييق المساحة الوسطى لإجبار المنتجات على النزول سطر جديد */
+            margin: 0 auto; /* توسيط المنتجات في منتصف الشاشة وتفريغ اليمين واليسار */
+        }
         
+        /* 2. كرت المنتج: تحديد مقاس نحيف وثابت يمنع الصور من أن تصبح عريضة جداً */
+        .card { 
+            background: white; 
+            border: 1px solid #ffe3ec; 
+            border-radius: 16px; 
+            width: 290px; /* تحديد عرض الكرت ليكون رشيقتً وصغيراً وبأبعاد طولية مثالية */
+            padding: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            box-sizing: border-box; /* حماية الكرت من التمدد العشوائي */
+        }
+        .card:hover { transform: translateY(-5px); }
+        
+        /* 3. الصور: الحفاظ على الطول الأنيق والرشيق للبيجامة دون أي عرض زائد */
+        .card img { 
+            width: 100%; 
+            border-radius: 12px; 
+            height: 360px; /* طول مثالي للبيجامات */
+            object-fit: cover; 
+        }
+        .card h3 { font-size: 18px; margin: 15px 0 5px 0; color: #2d3748; }
+        .price { color: #d63384; font-weight: bold; font-size: 21px; margin: 10px 0; }
+
         /* زر طلب عبر واتساب الفوري */
         .btn { background-color: #d63384; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; text-decoration: none; display: inline-block; box-sizing: border-box; margin-bottom: 8px; }
         .btn:hover { background-color: #b02263; }
@@ -434,41 +460,46 @@
 </div>
 
         <!-- حاوية الشبكة لعرض المنتجات -->
-     <div class="container">
-            <!-- المنتج الأول -->
-            <div class="card">
-                <img src="pajama1.jpg.jpg" alt="بيجامة ستان">
-                <h3>بيجامة قطنية انيقة</h3>
-                <p class="price">2100 دج</p>
-                <a href="order.html?product=بيجامة ستان حرير راقية (2100 دج)" class="btn">طلب عبر الواتساب 💬</a>
-             <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة ستان حرير راقية', price: 2100}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
- </button>
- 		 </div>
-
     <div class="container">
-            <!-- المنتج الثاني -->
-            <div class="card">
-                <img src="pajama2.jpg.jpg" alt="بيجامة ستان">
-                <h3>بيجامة قطنية انيقة</h3>
-                <p class="price">2100 دج</p>
-                <a href="order.html?product=بيجامة ستان حرير راقية (2100 دج)" class="btn">طلب عبر الواتساب 💬</a>
-             <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة ستان حرير راقية', price: 2100}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
- </button>
-            </div>
-            
-            <!-- المنتج الثالث -->
-            <div class="card">
-                <img src="pijama3.jpg.jpg" alt="بيجامة ستان">
-                <h3>بيجامة قطنية انيقة</h3>
-                <p class="price">2100 دج</p>
-                <a href="order.html?product=بيجامة شتوية ناعمة (1000 دج)" class="btn">طلب عبر الواتساب 💬</a>
+        
+        <!-- المنتج الأول (pajama1) -->
+        <div class="card">
+            <img src="pajama1.jpg.jpg" alt="بيجامة ستان">
+            <h3>بيجامة قطنية</h3>
+            <p class="price">2100 دج</p>
+            <a href="order.html?product=بيجامة ستان حرير راقية (2100 دج)" class="btn">طلب عبر الواتساب 💬</a>
+            <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة ستان حرير راقية', price: 2100}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
+        </div>
+        
+        <!-- المنتج الثاني (pajama2) -->
+        <div class="card">
+            <img src="pajama2.jpg.jpg" alt="بيجامة ستان">
+            <h3>بيجامة قطنية </h3>
+            <p class="price">2100 دج</p>
+            <a href="order.html?product=ببجامة قطنية (2100 دج)" class="btn">طلب عبر الواتساب 💬</a>     
+            <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة شتوية ناعمة', price: 2َ100}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
+        </div>
 
-         <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 1000; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة شتوية ناعمة', price: 1000}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
+        <!-- المنتج الثالث (pajama3) -->
+        <div class="card">
+            <img src="pijama3.jpg.jpg" alt="بيجامة جديدة">
+            <h3>بيجامة قطنية</h3>
+            <p class="price">2100 دج</p>
+            <a href="order.html?product=بيجامة قطنية(2100 دج)" class="btn">طلب عبر الواتساب 💬</a>
+            <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة صيفية خفيفة', price: 2100}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
+        </div>
 
-		 </div>
-		 
-        </div> 
-    </div> 
+        <!-- المنتج الرابع (pajama4) -->
+        <div class="card">
+            <img src="pajama4.jpg.jpg" alt="بيجامة جديدة">
+            <h3>بيجامة قطنية</h3>
+            <p class="price">2100 دج</p>
+            <a href="order.html?product=ببيجامة قطنية (2100 دج)" class="btn">طلب عبر الواتساب 💬</a>
+            <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'اسم المنتج الرابع للعلامة', price: 2100}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
+        </div>
+
+    </div> <!-- 👈 وسم الإغلاق الصحيح والوحيد لشبكة المنتجات يوضع هنا فقط بعد السلعة الرابعة -->
+ 
 <script>
     // دالة إخفاء فقاعة الإرشاد بنعومة فائقة عند الضغط على زر فهمت
     function closeGuide() {
