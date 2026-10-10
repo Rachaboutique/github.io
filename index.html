@@ -366,6 +366,38 @@
         font-size: 12px !important;
     }
 }
+/* تنسيق زر انضمي إلينا العائم أسفل الشريط من الجهة اليمنى */
+.btn-join-team-float {
+    position: fixed;
+    top: 155px; /* يظهر تحت الشريط الوردي والشريط المتحرك تماماً */
+    right: 20px; /* تثبيته في الجهة اليمنى */
+    background-color: #d63384;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(214, 51, 132, 0.25);
+    transition: 0.3s ease-in-out;
+    z-index: 9997; /* طبقة تحت الأشرطة لتتحرك السلع تحته بنعومة */
+}
+.btn-join-team-float:hover {
+    background-color: #b02263;
+    transform: scale(1.05);
+}
+
+/* ضبط مظهر الزر التلقائي على الهواتف المحمولة */
+@media (max-width: 768px) {
+    .btn-join-team-float {
+        top: 125px !important;
+        right: 15px !important;
+        padding: 8px 15px !important;
+        font-size: 12px !important;
+    }
+}
 
  </style>
 
