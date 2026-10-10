@@ -366,38 +366,6 @@
         font-size: 12px !important;
     }
 }
-/* تنسيق زر انضمي إلينا العائم أسفل الشريط من الجهة اليمنى */
-.btn-join-team-float {
-    position: fixed;
-    top: 155px; /* يظهر تحت الشريط الوردي والشريط المتحرك تماماً */
-    right: 20px; /* تثبيته في الجهة اليمنى */
-    background-color: #d63384;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 14px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(214, 51, 132, 0.25);
-    transition: 0.3s ease-in-out;
-    z-index: 9997; /* طبقة تحت الأشرطة لتتحرك السلع تحته بنعومة */
-}
-.btn-join-team-float:hover {
-    background-color: #b02263;
-    transform: scale(1.05);
-}
-
-/* ضبط مظهر الزر التلقائي على الهواتف المحمولة */
-@media (max-width: 768px) {
-    .btn-join-team-float {
-        top: 125px !important;
-        right: 15px !important;
-        padding: 8px 15px !important;
-        font-size: 12px !important;
-    }
-}
 
  </style>
 
@@ -441,7 +409,7 @@
     </div>
 	<div>
  <!-- زر انضمي إلى فريقنا العائم المطور -->
-<a href="Rejoindre.html" class="btn-join-team-float">انضمي إلى فريقنا 🤝</a>
+<a href="join.html" class="btn-join-team-float">انضمي إلى فريقنا 🤝</a>
 </div>
     <!-- المحتوى الرئيسي للمتجر -->
     <div class="main-content">
@@ -486,15 +454,7 @@
 
          <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 1000; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة شتوية ناعمة', price: 1000}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
 
-	</div>
-			<div class="card">
-    <img src="pajama1.jpg.jpg" alt="بيجامة ستان">
-    <h3>بيجامة ستان حرير راقية</h3>
-    <p class="price">2100 دج</p>
-    <a href="order.html?product=بيجامة ستان حرير راقية (2100 دج)" class="btn">طلب عبر الواتساب 💬</a>
-    <button class="btn-add-cart" onclick="window.cartCount += 1; window.cartTotal += 2100; document.getElementById('globalCartCount').innerText = window.cartCount; document.getElementById('globalCartTotal').innerText = window.cartTotal; let cart = JSON.parse(localStorage.getItem('rachaCart')) || []; cart.push({name: 'بيجامة ستان حرير راقية', price: 2100}); localStorage.setItem('rachaCart', JSON.stringify(cart));">إضافة إلى السلة 🛒</button>
-</div>
-
+		 </div>
         </div> 
     </div> 
 <script>
